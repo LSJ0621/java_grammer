@@ -10,9 +10,11 @@ public class C11QueStackDeque {
 //        myQue.add(10);
 //        myQue.add(20);
 //        myQue.add(30);
+
 //        myQue에 데이터를 삭제하면서 반환
 //        System.out.println(myQue.poll());
 //        System.out.println(myQue);
+
 ////        myQue에 데이터를 삭제하지는 않고, 가장 앞의 데이터를 반환
 //        System.out.println(myQue.peek());
 
@@ -102,6 +104,146 @@ public class C11QueStackDeque {
 //        maxPq.add(20);
 //        System.out.println(maxPq.poll());
 
+//        더 맵게 -프로그래머스
+//        int [] scoville = {1, 2, 3, 9, 10, 12};
+//        int K = 7;
+//        int answer = 0;
+//        Queue<Integer> pq = new PriorityQueue<>();
+//        for(int i=0; i<scoville.length; i++){
+//            if(scoville[i]<7){
+//                pq.add(scoville[i]);
+//            }
+//        }
+//        while(true){
+//            if(pq.isEmpty()){
+//                break;
+//            }
+//            int a = pq.poll()+pq.poll()*2;
+//            if(a<K){
+//                pq.add(a);
+//                answer++;
+//            }else {
+//                answer++;
+//                break;
+//            }
+//        }
+//        System.out.println(answer);
+
+//        강사님 풀이
+//        int answer = 0;
+//        int K =7;
+//        Queue<Integer> pq = new PriorityQueue<>();
+//        for(int s:scoville){
+//            pq.add(s);
+//        }
+//        while(pq.peek()<K){
+//            if(pq.size()<=1){
+//                answer=-1;
+//                break;
+//            }
+//            int temp1 = pq.poll();
+//            int temp2 = pq.poll();
+//            pq.add(temp1 + temp2*2);
+//            answer++;
+//        }
+
+//        stack
+//        Stack<Integer> st = new Stack<>();
+//        st.push(10);
+//        st.push(20);
+//        st.push(30);
+//        System.out.println(st.pop());
+//        System.out.println(st.peek());
+//        System.out.println(st.size());
+//        System.out.println(st.isEmpty());
 //
+//        while(!st.isEmpty()){
+//            System.out.println(st.pop());
+//        }
+
+
+//        같은 숫자는 싫어 - 프로그래머스
+//        int[] arr = {1,1,3,3,0,1,1};
+//        Stack<Integer> st = new Stack<>();
+//        st.push(arr[0]);
+//        for(int i=1; i< arr.length;i++){
+//            if(st.peek()!=arr[i]){
+//                st.push(arr[i]);
+//            }
+//        }
+//        int[] answer = new int[st.size()];
+//        for(int i=0;i< answer.length;i++){
+//            answer[i] = st.get(i);
+//        }
+
+//        강사님 풀이
+//        int []arr = {1,1,3,3,0,1,1};
+//        Stack<Integer> st = new Stack<>();
+//        for(int a : arr){
+//            if(st.isEmpty()){
+//                st.push(a);
+//            }else {
+//                if(st.peek() != a){
+//                    st.push(a);
+//                }
+//            }
+//        }
+//        int[] answer = new int[st.size()];
+//        for(int i=answer.length-1; i>=0 ;i--){
+//            answer[i] = st.pop();
+//        }
+//        System.out.println(Arrays.toString(answer));
+
+//        Deque : addFirst, addLast, pollFirst, pollLast
+//        Deque<Integer> d1 = new ArrayDeque<>();
+//        d1.addLast(10);
+//        d1.addLast(20);
+//        System.out.println(d1);
+//        d1.addFirst(30);
+//        System.out.println(d1);
+//        System.out.println(d1.peekFirst());//30
+//        System.out.println(d1.peekLast());//20
+//        System.out.println(d1.pollLast());
+//        System.out.println(d1.pollFirst());
+//        System.out.println(d1);
+
+//        올바를 괄호 - 프로그래머스
+//        String s = "(())()";
+//        Deque<Integer> d1 = new ArrayDeque<>();
+//        String[] myStr = s.split("");
+//        int[] myInt = new int[myStr.length];
+//        boolean answer = false;
+//        for(int i=0;i<s.length();i++){
+//            if(myStr[i].equals("(")){
+//                myInt[i] = 0;
+//            } else if (myStr[i].equals(")")) {
+//                myInt[i] = 1;
+//            }
+//        }
+//        if(myInt[0]==1 || myInt[myInt.length-1]==0){
+//            answer=false;
+//        }else{
+//            for(int i=0; i<myInt.length;i++){
+//                d1.add(myInt[i]);
+//                if(myInt[i]==1){
+//                    d1.poll();
+//                    d1.poll();
+//                }
+//            }
+//            if(d1.isEmpty()){
+//                answer = true;
+//            }else  answer = false;
+//        }
+//        System.out.println(answer);
+
+//        강사님 풀이
+//        String s = "()((()";
+//        char[] arr=s.toCharArray();
+//        int cnt = 0;
+//        for(char c: arr){
+//            cnt = c=='(' ? cnt+1 : cnt-1;
+//            if(cnt<0) System.out.println(false);;
+//        }
+//        System.out.println(cnt==0);;
     }
 }
