@@ -33,6 +33,13 @@ public class C0206ClassPractice {
 
 //        Map을 자료구조로 사용시
         Map<String,Account> map = new HashMap<>();
+        map.put("1234",new Account("1234",100000));
+        map.put("4321", new Account("4321", 100000));
+
+        Account myAccount = map.get("1234");
+        Account yourAccount = map.get("4321");
+        myAccount.setBalance(myAccount.getBalance()-50000);
+        yourAccount.setBalance(yourAccount.getBalance()+50000);
     }
 }
 
