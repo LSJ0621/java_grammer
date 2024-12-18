@@ -136,7 +136,7 @@ public class C07Array {
 //        내림차순 : 기본형타입은 Comparator로 처리불가
 //        Arrays.sort(fruits, Comparator.reverseOrder());
 //        int[] arr = {5,1,2,3,6};
-////        Arrays.sort(arr, Comparator.reverseOrder());
+//        Arrays.sort(arr, Comparator.reverseOrder());
 //        System.out.println(Arrays.toString(fruits));
 
 //        K번째수 프로그래머스

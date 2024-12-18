@@ -61,23 +61,23 @@ public class BoardService {
             } else if (service==5) {
                 System.out.println("게시물 목록 조회 : id, title");
                 for(Post a: Post.posts ){
-                    System.out.print("id: "+ a.getAuthor_id());
+                    System.out.print("id: "+ a.getId());
                     System.out.println(", title: "+a.getTitle());
                 }
             } else if (service==6) {
                 System.out.println("게시물 상세 조회 : id(post), title, contents, 작성자email");
+                int postId = Integer.parseInt(br.readLine());
                 for(Post a : Post.posts){
-                    System.out.print("id: "+a.getAuthor_id());
-                    System.out.print(", title: "+a.getTitle());
-                    System.out.print(", contents"+a.getContent());
-                    String author_email = "";
-                    for(Author b:Author.authors){
-                        if(b.getId() == a.getAuthor_id()){
-                            author_email = b.getEmail();
+                    if(a.getId()==postId){
+                        System.out.print("id: "+a.getId());
+                        System.out.print(", title: "+a.getTitle());
+                        System.out.print(", contents: "+a.getContent());
+                        for(Author b : Author.authors){
+                            if(a.getAuthor_id()==b.getId()){
+                                System.out.println(", author_email : "+ b.getEmail());
+                            }
                         }
                     }
-                    System.out.println(", 작성자 email: "+author_email);
-                    //System.out.println(", author_email"+);
                 }
             } else if (service==0) {
                 System.out.println("서비스 종료");
@@ -88,6 +88,7 @@ public class BoardService {
         }
     }
 }
+
 class Author{
     private String name;
     private String email;
@@ -134,20 +135,6 @@ class Post{
     static int static_id = 0;
     static public List<Post> posts = new ArrayList<>();
 
-
-    public int getAuthor_id() {
-        return author_id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-
     public Post(String title, String contents, int author_id){
         this.title = title;
         this.content = contents;
@@ -165,5 +152,24 @@ class Post{
         }
         return findAuthorId;
     }
+
+    public int getId() {
+        return id;
+    }
+
+
+
+    public int getAuthor_id() {
+        return author_id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
 
 }

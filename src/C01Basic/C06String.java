@@ -96,7 +96,7 @@ public class C06String {
 ////        indexof : 특정 문자열의 위치 반환, 가장 먼저 나오는 문자열의 위치
 //        System.out.println(st1.indexOf("java"));
 //
-////        cntains : 특정 문자열이 있는지 여부를 boolean
+////        contains : 특정 문자열이 있는지 여부를 boolean
 //        System.out.println(st1.contains("hello"));
 //        System.out.println(st1.contains("world"));
 
